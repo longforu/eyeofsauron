@@ -1,0 +1,61 @@
+html
+      head
+            link(rel='stylesheet' type='text/css' href='bootstrap.min.css')
+      body
+            div(class='container')
+                  hr
+                  div(class='text-center')
+                        h1 Eye of Sauron
+                        div Non profits - demystified
+                        div(class='text-secondary') Made by Long Tran
+                  hr
+                  p The goal of this project is to increase transparency into non-profits and foundation by making non-profit activity easy to view and access.
+                  p It get this data by scraping the IRS Form 990 database. (Believe me, easier said than done)
+            div(class='form-group container')
+                  hr
+                  form(action='/search' method='GET')
+                        input(name='q' style='height:50px;border-radius:0px' class='form-control' type='text' placeholder='Search for non-profit here, e.g. Bill and Melinda Gates')
+                        button(type='submit' class='btn btn-success mt-2') Submit
+              
+            
+            -if(search)
+                  div(class='container')
+                        -if(!result.length)
+                              div(class='container text-center')
+                                    p(class='text-danger') No result was found for that query, please try again
+                        -else
+                              div(class='container')
+                                    h5 Search result:
+                                    p Choose all that apply
+                                    form(action='result' method='GET')
+                                          each value in result
+                                                div
+                                                      input(type='checkbox' name=value.ein) 
+                                                      span= ' '+value.name
+                                          button(type='submit' class='mt-2 mb-2 btn btn-primary') Scrape! 👀
+            
+            div(class='container')
+                  hr
+                  h5 Index by Billionaire:
+                  a(href='/result?562618866=on&911663695=on&821808476=on') Bill Gates
+                  span=' '
+                  a(href='/result?813742328=on&455002209=on&811669175=on') Mark Zuckerberg
+                  span=' '
+                  a(href='/result?136272482=on&464345140=on&205602483=on&266668934=on') Michael Bloomberg
+                  span=' '
+                  a(href='result?541595128=on&205921960=on&814690954=on') Larry Page
+                  span=' '
+                  a(href='/result?472107200=on') Sergey Brin
+
+                  h5 Popular Non-Profits:
+                  a(href='/result?200049703=on&270520584=on') Wikimedia Foundation
+                  span=' '
+                  a(href='/result?131684331=on') Ford Foundation
+                  span=' '
+                  a(href='/result?521693387=on&980203027=on') World Wildlife Fund
+                  hr
+                
+            div(class='container')
+                  p For your viewing pleisure, most popular non-profits/foundation are cached. However, a few big ones can take a long time to scrape. If your browser request time out, reload the page.
+                  p Happy viewing :)
+                  hr

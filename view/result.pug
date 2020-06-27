@@ -1,0 +1,37 @@
+html
+      head
+            link(rel='stylesheet' type='text/css' href='bootstrap.min.css')
+            script(src='script.js')
+      body
+            div(class='container')
+                  a(href='/') Go back
+                  -if(!result.length)
+                        h3(class='text-danger') No data was found for this non-profit, please try again.
+                        p This can happen because the non-profit you are looking for does not file taxes electronically.
+                        p It can also happen because the programmer programming this forgot to do something. Often reloading once will clear up any mistake.
+                  -else
+                        div(class='mt-5')
+                              div
+                                    p Information here maybe incomplete, do not use this in a legal or business context.
+                                    a(href='https://twitter.com/LongTran02') Follow me on Twitter!
+                              div
+                              div(id='foundation' class='mt-5 mb-5')
+                                    p='Total money donated by all foundations: $'+totalMoney.toLocaleString()
+                                    h3 Foundation in this list:
+                              table(class='table table-striped table-bordered table-hover')  
+                                    thead
+                                          th Grantee
+                                          th Amount Donated
+                                          th Description
+                                          th Year
+                                          th Non-profit Name
+                                    tbody
+                                          each item in result
+                                                tr
+                                                      td=item.name
+                                                      td='$'+item.amount.toLocaleString()
+                                                      td=item.description
+                                                      td=item.year
+                                                      td(class='foundationName')=item.foundation
+                                                      
+
