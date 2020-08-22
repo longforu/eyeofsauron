@@ -21,7 +21,7 @@ html
                         div Non profits - demystified
                         div(class='text-secondary') Made by Long Tran
                   hr
-                  h2 FAQs
+                  h2(class='pb-3') FAQs
                   h6 What is this?
                   p(class='text-secondary') This takes non-profit's IRS tax filings and turn it into easy to consume information.
                   h6 How did you do this?
@@ -32,6 +32,7 @@ html
                   p(class='text-secondary') Yes
             div(class='form-group container')
                   hr
+                  h2(class='pb-3') Search
                   form(action='/search' method='GET')
                         input(name='q' style='height:50px;border-radius:0px' class='form-control' type='text' placeholder='Search for non-profit here, e.g. Bill and Melinda Gates')
                         button(type='submit' class='btn btn-success mt-2') Submit
@@ -55,7 +56,8 @@ html
             
             div(class='container')
                   hr
-                  h5 Index by Billionaire:
+                  h2(class='pb-3') Popular Items
+                  h5 Billionaires:
                   a(href='/result?562618866=on&911663695=on&821808476=on') Bill Gates
                   span=' '
                   a(href='/result?813742328=on&455002209=on&811669175=on') Mark Zuckerberg
@@ -66,7 +68,7 @@ html
                   span=' '
                   a(href='/result?472107200=on') Sergey Brin
 
-                  h5(class='pt-3') Popular Non-Profits:
+                  h5(class='pt-3') Non-Profits:
                   a(href='/result?200049703=on&270520584=on') Wikimedia Foundation
                   span=' '
                   a(href='/result?131684331=on') Ford Foundation
