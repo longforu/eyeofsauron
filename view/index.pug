@@ -10,8 +10,15 @@ html
                         div Non profits - demystified
                         div(class='text-secondary') Made by Long Tran
                   hr
-                  p The goal of this project is to increase transparency into non-profits and foundation by making non-profit activity easy to view and access.
-                  p It get this data by scraping the IRS Form 990 database. (Believe me, easier said than done)
+                  h2 FAQs
+                  h6 What is this?
+                  p(class='text-secondary') It is difficult to access public data about a nonprofit's donations. This takes IRS's public data and turn it into easy to consume information.
+                  h6 How did you do this?
+                  p(class='text-secondary') Algorithms and robots. 🤖
+                  h6 Algorithms that do what?
+                  p(class='text-secondary') The IRS doesn't have a consistent schema across all documents, and some documents are missing. This automatically try to detect a schema before it scrape.
+                  h6 Is this the nerdiest project ever?
+                  p(class='text-secondary') Yes
             div(class='form-group container')
                   hr
                   form(action='/search' method='GET')
@@ -48,7 +55,7 @@ html
                   span=' '
                   a(href='/result?472107200=on') Sergey Brin
 
-                  h5 Popular Non-Profits:
+                  h5(class='pt-3') Popular Non-Profits:
                   a(href='/result?200049703=on&270520584=on') Wikimedia Foundation
                   span=' '
                   a(href='/result?131684331=on') Ford Foundation
